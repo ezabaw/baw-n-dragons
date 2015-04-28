@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8" />
+  	<meta name="viewport" content="width=device-width" />
+  	<title>Dungeons for Baw</title>
+
+  	<link rel="stylesheet" href="css/normalize.css" />
+  	<link rel="stylesheet" href="css/foundation.css" />
+  	<link rel="stylesheet" href="css/general_enclosed_foundicons.css" />
+  	<link rel="stylesheet" href="css/app.css" />
+
+  	<script src="js/vendor/custom.modernizr.js"></script> 
+  	<script src="js/vendor/jquery.js"></script>
+  	<script src="js/vendor/zepto.js"></script>
+  	<script src="js/foundation.min.js"></script>
+  	<script src="js/app.js"></script>  
+</head>
+<body>
+
+	<div class="fixed">
+	    <nav class="top-bar">
+	      <ul class="title-area">
+	        <!-- Title Area -->
+	        <li class="name">
+	          <h1><a href="#">Dungeons & Baw</a></h1>
+	        </li>
+	        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+	      </ul>
+	      <section class="top-bar-section">
+	        <!-- Left Nav Section -->
+	        <ul class="left">
+	          <li class="divider"></li>
+	          <li>
+	          	<a href="#" id="btnAgregarMounstro">Agregar Mounstro</a>
+	          </li>
+	        </ul>
+	      </section>
+	    </nav>
+    </div> 
+
+    <form class="custom">
+	<div class="row">
+		<div class="large-9 columns">
+			<div class="panel" id="pnlMounstros">
+				<div class="callout panel mounstro">
+					<div class="pnlDatos">
+						<div class="row">
+							<div class="success progress"><span class="meter" style="width: 100%"></span></div>
+						</div>
+						<div class="row">
+							<div class="large-5 columns">
+	                            <label><small>Nombre</small></label>
+								<input type="text" class="txtNombre"/>
+							</div>
+							<div class="large-1 columns">
+	                            <label><small>Hit Points</small></label>
+								<input type="text" class="txtVidaTotal"/>
+							</div>
+							<div class="large-1 columns">
+	                            <label><small>.</small></label>
+								<h3 class="subheader">&nbsp;&nbsp;/</h3>
+							</div>
+							<div class="large-1 columns">
+	                            <label><small>.</small></label>
+								<input type="text" class="txtVidaActual"/>
+							</div>
+							<div class="large-1 large-offset-1 columns">
+	                            <label><small>.</small></label>
+								<input type="text" class="txtDañar"/>
+							</div>
+							<div class="large-2 columns">
+	                            <label><small>.</small></label>
+								<a href="#" class="small alert button btnDañar">Dañar</a>
+							</div>
+						</div>
+					</div>
+					<div class="panel pnlLanzadas">
+						<div class="row collapse rowLanzadas">
+							<div class="large-1 columns">
+                                <label><small># dados</small></label>
+								<input type="text" class="txtNumDados"/>
+							</div>
+							<div class="large-2 columns">
+                                <label><small>.</small></label>
+								<select class="ddlDados">
+								    <option value="20">d20</option>
+								    <option value="12">d12</option>
+								    <option value="10">d10</option>
+								    <option value="8">d8</option>
+								    <option value="6">d6</option>
+								    <option value="4">d4</option>
+							  	</select>
+							</div>
+							<div class="large-2 columns">
+                                <label><small>Modificador</small></label>
+								<input type="text" class="txtModificador"/>
+							</div>
+							<div class="large-2 columns">
+                                <label><small>.</small></label>
+								<a href="#" class="small success button btnLanzar">Lanzar</a>
+							</div>
+							<div class="large-3 columns">
+                                <label><small>.</small></label>
+								<span class="lblResultados"></span>
+							</div>
+							<div class="large-2 columns">
+                                <label><small>Resultado</small></label>
+								<input type="text" class="txtResultado" />
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="large-4 columns">
+							<a href="#" class="small button secondary btnAgregarLanzada"><i class="foundicon-plus"></i>Agregar Lanzada</a>
+						</div>
+						<div class="large-4 columns">
+							<a href="#" class="small button secondary btnDuplicarMounstro"><i class="foundicon-smiley"></i>Duplicar Mounstro</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="large-3 columns">
+			<div class="row">
+				<h2 class="subheader">logs</h2>
+			</div>
+			<div class="row">
+				<input type="text" id="txtLogs" >
+			</div>
+		</div>
+	</div>
+	</form>
+
+
+
+<!--  DATOS PARA COPIAS -->
+
+
+	<div class="invisible">
+		<div class="callout panel" id="nuevoMounstro">
+			<div class="pnlDatos">
+				<div class="row">
+					<div class="success progress"><span class="meter" style="width: 100%"></span></div>
+				</div>
+				<div class="row">
+					<div class="large-5 columns">
+                        <label><small>Nombre</small></label>
+						<input type="text" class="txtNombre"/>
+					</div>
+					<div class="large-1 columns">
+                        <label><small>Hit Points</small></label>
+						<input type="text" class="txtVidaTotal"/>
+					</div>
+					<div class="large-1 columns">
+                        <label><small>.</small></label>
+						<h3 class="subheader">&nbsp;&nbsp;/</h3>
+					</div>
+					<div class="large-1 columns">
+                        <label><small>.</small></label>
+						<input type="text" class="txtVidaActual"/>
+					</div>
+					<div class="large-1 large-offset-1 columns">
+                        <label><small>.</small></label>
+						<input type="text" class="txtDañar"/>
+					</div>
+					<div class="large-2 columns">
+                        <label><small>.</small></label>
+						<a href="#" class="small alert button btnDañar">Dañar</a>
+					</div>
+				</div>
+			</div>
+			<div class="panel pnlLanzadas">
+				<div class="row collapse">
+					<div class="large-1 columns">
+                        <label><small># dados</small></label>
+						<input type="text" class="txtNumDados"/>
+					</div>
+					<div class="large-2 columns">
+                        <label><small>.</small></label>
+						<select class="ddlDados">
+						    <option value="20">d20</option>
+						    <option value="12">d12</option>
+						    <option value="10">d10</option>
+						    <option value="8">d8</option>
+						    <option value="4">d4</option>
+					  	</select>
+					</div>
+					<div class="large-2 columns">
+                        <label><small>Modificador</small></label>
+						<input type="text" class="txtModificador"/>
+					</div>
+					<div class="large-2 columns">
+                        <label><small>.</small></label>
+						<a href="#" class="small success button btnLanzar">Lanzar</a>
+					</div>
+					<div class="large-3 columns">
+                        <label><small>.</small></label>
+						<span class="lblResultados"></span>
+					</div>
+					<div class="large-2 columns">
+                        <label><small>Resultado</small></label>
+						<input type="text" class="txtResultado" />
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="large-4 columns">
+					<a href="#" class="small button secondary btnAgregarLanzada"><i class="foundicon-plus"></i>Agregar Lanzada</a>
+				</div>
+				<div class="large-4 columns">
+					<a href="#" class="small button secondary btnDuplicarMounstro"><i class="foundicon-smiley"></i>Duplicar Mounstro</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="row collapse rowLanzadas" id="nuevaLanzada">
+			<div class="large-1 columns">
+                <label><small># dados</small></label>
+				<input type="text" class="txtNumDados"/>
+			</div>
+			<div class="large-2 columns">
+                <label><small>.</small></label>
+				<select class="ddlDados">
+				    <option value="20">d20</option>
+				    <option value="12">d12</option>
+				    <option value="10">d10</option>
+				    <option value="8">d8</option>
+				    <option value="6">d6</option>
+				    <option value="4">d4</option>
+			  	</select>
+			</div>
+			<div class="large-2 columns">
+                <label><small>Modificador</small></label>
+				<input type="text" class="txtModificador"/>
+			</div>
+			<div class="large-2 columns">
+                <label><small>.</small></label>
+				<a href="#" class="small success button btnLanzar">Lanzar</a>
+			</div>
+			<div class="large-3 columns">
+                <label><small>.</small></label>
+				<span class="lblResultados"></span>
+			</div>
+			<div class="large-2 columns">
+                <label><small>Resultado</small></label>
+				<input type="text" class="txtResultado" />
+			</div>
+		</div>
+	</div>
+</body>
+</html>
